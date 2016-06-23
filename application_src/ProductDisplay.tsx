@@ -7,7 +7,7 @@ const getDetailModel = product => ({
   inStock: product.UnitsInStock > 0
 })
 
-export class ProductList extends React.Component {
+export class ProductList extends React.Component<any, any> {
 
   render() {
     return (<ul>
@@ -17,37 +17,41 @@ export class ProductList extends React.Component {
       </li>)}
     </ul>)
   }
+
+  static propTypes = {
+    records: React.PropTypes.array.isRequired
+  }
 }
 
-ProductList.propTypes = {
-  records: React.PropTypes.array.isRequired
-}
 
 
-export class ProductLabel extends React.Component {
+export class ProductLabel extends React.Component<{name: string, id: number}, any> {
   render() {
     return <div>
       <div>{this.props.name}</div>
       <a href={`/go/to/product/${this.props.id}`}>buy me</a>
     </div>
   }
+
+  static propTypes = {
+    name: React.PropTypes.string.isRequired,
+    id: React.PropTypes.number.isRequired
+  }
+
 }
-ProductLabel.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  id: React.PropTypes.number.isRequired
-}
 
 
 
-export class ProductDetail extends React.Component {
+export class ProductDetail extends React.Component<any, any> {
   render() {
     return <div>
       <div>Price: {this.props.price}</div>
       {this.props.inStock && <button>Buy me</button>}
     </div>
   }
-}
-ProductLabel.propTypes = {
-  price: React.PropTypes.number.isRequired,
-  inStock: React.PropTypes.bool.isRequired
+
+  static propTypes = {
+    price: React.PropTypes.number.isRequired,
+    inStock: React.PropTypes.bool.isRequired
+  }
 }
