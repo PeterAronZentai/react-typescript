@@ -13,6 +13,7 @@ System.config({
     "react-dom": "npm:react-dom@15.1.0",
     "react-router": "npm:react-router@2.4.1",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
+    "whatwg-fetch": "npm:whatwg-fetch@1.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.0"
     },
