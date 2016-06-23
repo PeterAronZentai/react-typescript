@@ -16,22 +16,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "systemjs": "^0.19.29",
-    "jspm": "^0.16.35",
-    "systemjs-builder": "^0.15.18",
     "express": "latest",
+    "jspm": "^0.16.35",
     "lite-server": "latest",
+    "reflect-metadata": "^0.1.3",
+    "systemjs": "^0.19.29",
+    "systemjs-builder": "^0.15.18",
     "typescript": "latest",
     "typings": "latest"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "jspm": {
     "dependencies": {
       "events": "github:jspm/nodelibs-events@^0.1.1",
       "react": "npm:react@^15.1.0",
       "react-dom": "npm:react-dom@^15.1.0",
-      "react-router": "npm:react-router@^2.4.1"
+      "react-router": "npm:react-router@^2.4.1",
+      "reflect-metadata": "npm:reflect-metadata@^0.1.3"
     },
     "devDependencies": {}
   }

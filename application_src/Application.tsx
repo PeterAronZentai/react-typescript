@@ -1,14 +1,14 @@
 /// <reference path="../typings/index.d.ts" />
+import 'reflect-metadata'
 import * as React from 'react'
 import { Component, ComponentLifecycle, ReactPropTypes, ValidationMap } from 'react'
 import { render as domRender } from 'react-dom'
 import { store } from './Store'
 import { ProductList } from './ProductDisplay'
 
-export class Application extends Component {
+export class Application extends Component<any, any> {
 
   componentDidMount() {
-    store.
     store.subscribe( () => {
       this.setState({records: store.records})
     })
@@ -27,6 +27,5 @@ export class Application extends Component {
   }
 }
 
-domRender((
-  <Application />
-), document.getElementById('container'))
+
+domRender(<Application />, document.getElementById('container'))

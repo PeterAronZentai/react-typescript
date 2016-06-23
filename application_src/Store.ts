@@ -5,18 +5,26 @@ import { records } from './productsdb.js'
 
 console.log(records);
 
+
+export interface Product {
+  UnitPrice: number,
+  ProductID: number,
+  UnitsInStock: number,
+  ProductName: string
+}
+
 export class Store  {
 
   private emitter
   private _records
-  private loading
+  public loading
 
   constructor() {
     this.emitter = new EventEmitter()
     this._records = []
   }
 
-  get records() {
+  get records() : Array<Product> {
     return this._records || [];
   }
 
@@ -27,7 +35,7 @@ export class Store  {
                       this.notify() , 1500 )
   }
 
-  notify() {
+  private notify() {
     this.emitter.emit("change")
   }
 

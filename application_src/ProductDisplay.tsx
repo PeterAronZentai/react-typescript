@@ -1,13 +1,14 @@
 import * as React from 'react'
 import { Component, ComponentLifecycle, ReactPropTypes, ValidationMap } from 'react'
+import { Product } from './Store'
+import 'reflect-metadata'
 
-
-export class ProductList extends React.Component<any, any> {
+export class ProductList extends React.Component<{records: Array<Product>}, any> {
 
   render() {
     return (<ul>
       {this.props.records.map(r => <li>
-        <ProductLabel name={r.ProductName} id={r.ProductId} />
+        <ProductLabel name={r.ProductName} id={r.ProductID} />
         <ProductDetail price={r.UnitPrice} inStock={r.UnitsInStock > 0} />
       </li>)}
     </ul>)
@@ -17,6 +18,7 @@ export class ProductList extends React.Component<any, any> {
     records: React.PropTypes.array.isRequired
   }
 }
+
 
 
 interface ProductLabelModel {
@@ -40,8 +42,21 @@ export class ProductLabel extends React.Component<ProductLabelModel, any> {
 }
 
 
+interface ProductDetailModel {
+  price: number,
+  inStock: boolean
+}
 
-export class ProductDetail extends React.Component<any, any> {
+function decorateSomeHow(target: any):any {
+  const keys = Reflect.getMetadataKeys(target)
+}
+
+@decorateSomeHow
+export class ProductDetail extends React.Component<ProductDetailModel, any> {
+  constructor(props, context) {
+    super(props, context)
+
+  }
   render() {
     return <div>
       <div>Price: {this.props.price}</div>
