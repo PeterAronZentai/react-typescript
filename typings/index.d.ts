@@ -6,3 +6,4 @@
 /// <reference path="globals/react-router/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />
 /// <reference path="globals/serve-static/index.d.ts" />
+/// <reference path="globals/systemjs/index.d.ts" />
