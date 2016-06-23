@@ -7,6 +7,10 @@ console.log(records);
 
 export class Store  {
 
+  private emitter
+  private _records
+  private loading
+
   constructor() {
     this.emitter = new EventEmitter()
     this._records = []

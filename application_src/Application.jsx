@@ -8,6 +8,7 @@ import { ProductList } from './ProductDisplay'
 export class Application extends Component {
 
   componentDidMount() {
+    store.
     store.subscribe( () => {
       this.setState({records: store.records})
     })

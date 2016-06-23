@@ -2,11 +2,6 @@ import * as React from 'react'
 import { Component, ComponentLifecycle, ReactPropTypes, ValidationMap } from 'react'
 
 
-const getDetailModel = product => ({
-  price: product.UnitPrice,
-  inStock: product.UnitsInStock > 0
-})
-
 export class ProductList extends React.Component<any, any> {
 
   render() {
@@ -24,8 +19,12 @@ export class ProductList extends React.Component<any, any> {
 }
 
 
+interface ProductLabelModel {
+  name: string,
+  id: number
+}
 
-export class ProductLabel extends React.Component<{name: string, id: number}, any> {
+export class ProductLabel extends React.Component<ProductLabelModel, any> {
   render() {
     return <div>
       <div>{this.props.name}</div>
