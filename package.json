@@ -1,0 +1,38 @@
+{
+  "name": "react-typescript-salsa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "./node_modules/.bin/jspm install && npm run build",
+    "build": "npm run build-client && ./node_modules/.bin/jspm bundle application/Application.js dist/app.js",
+    "build-client": "./node_modules/.bin/tsc -p application_src -outDir application",
+    "build-client-w": "./node_modules/.bin/tsc -p application_src -outDir application -w",
+    "build-vendor": " ./node_modules/.bin/jspm bundle application/Application - [application/**/*.js] dist/vendor.js",
+    "dev-server": "./node_modules/.bin/lite-server",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "systemjs": "^0.19.29",
+    "jspm": "^0.16.35",
+    "systemjs-builder": "^0.15.18",
+    "express": "latest",
+    "lite-server": "latest",
+    "typescript": "latest",
+    "typings": "latest"
+  },
+  "devDependencies": {
+  },
+  "jspm": {
+    "dependencies": {
+      "events": "github:jspm/nodelibs-events@^0.1.1",
+      "react": "npm:react@^15.1.0",
+      "react-dom": "npm:react-dom@^15.1.0",
+      "react-router": "npm:react-router@^2.4.1"
+    },
+    "devDependencies": {}
+  }
+}
