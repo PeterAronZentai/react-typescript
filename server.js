@@ -7,7 +7,8 @@ const local = 'http://localhost:8983/solr/resource-intl/select?wt=json&indent=tr
 
 app.use('/', require('cors')())
 app.use("/solr", (req, res) => {
-  request.get(staging + req.query.query, (err, result, body) => {
+  request.get(local + req.query.query, (err, result, body) => {
+    if (err) return res.status(500).send(err.message)
     res.send(JSON.parse(body))
   })
 })
